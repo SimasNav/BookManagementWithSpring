@@ -1,0 +1,10 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/springbms
+    username: root
+    password: simas
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
