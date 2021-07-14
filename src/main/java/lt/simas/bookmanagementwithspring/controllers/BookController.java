@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/books")
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("http://46.251.46.162:4200")
 public class BookController {
 
     private BookService bookService;
@@ -22,6 +22,11 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks(){
         return this.bookService.getAllBooks();
+    }
+
+    @GetMapping("/{id}")
+    public Book getBookById(@PathVariable Long id){
+        return this.bookService.findBookById(id);
     }
 
     @PostMapping
@@ -41,5 +46,10 @@ public class BookController {
     @PutMapping("/{id}")
     public Book updateBook(@PathVariable Long id, @RequestBody BookDTO bookDTO){
         return this.bookService.updateBook(id,bookDTO);
+    }
+
+    @GetMapping("/title/{title}")
+    public List<Book> getBooksWhereTitleIs(@PathVariable String title){
+        return this.bookService.getBooksWhereTitleIs(title);
     }
 }

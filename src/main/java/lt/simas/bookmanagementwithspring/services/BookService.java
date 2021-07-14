@@ -41,4 +41,8 @@ public class BookService {
         book.setTitle(bookDTO.getTitle());
         return this.bookRepo.save(book);
     }
+
+    public List<Book> getBooksWhereTitleIs(String title) {
+        return this.bookRepo.getAllByTitleLike(title);
+    }
 }
